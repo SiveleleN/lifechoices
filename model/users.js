@@ -52,4 +52,6 @@ class Users {
         }
     }
 }
-export default Users;
+export {
+Users
+}
