@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+h1 {
+    color: #333;
+}
+table {
+    width: 100%;
+    border: 1px solid #141414;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+table th, .route-table td {
+    border: 1px solid #050505;
+    padding: 10px;
+    text-align: left;
+}
+table th {
+    background-color: #E2DCDC;
+}
+table caption {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+ tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+table tr:hover {
+    background-color: #FFFFFF;
+}
+
+
+
+
+
+
+
