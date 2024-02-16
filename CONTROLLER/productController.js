@@ -1,36 +1,39 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { products } from "../model/index.js";
-
+import { Products } from "../models/Products.js";
 const productRouter = express.Router()
-productRouter.get('/', async (req, res) => {
+// fetch all products
+productRouter.get('/', (req, res)=>{
     try {
-        await product.fetchproduct(req, res);
+        products.fetchProducts(req,res)
     } catch (e) {
         res.json({
-            status: res.statusCode,
-            msg: 'Failed to retrieve product',
-        });
+            status: statusCode,
+            msg: 'Failed to retrieve products'
+        })
     }
-});
-productRouter.get('/:id', async (req, res) => {
+})
+// add a product
+productRouter.get('/:id', (req, res)=>{
     try {
-        await product.fetchproducts(req, res);
-    } catch (e) {
+        products.fetchProducts(req, res)
+    } catch (error) {
         res.json({
             status: res.statusCode,
-            msg: 'Failed to retrieve product',
-        });
+            msg: 'Failed to retrieve a product.'
+        })
     }
-});
-productRouter.post('/addProduct', bodyParser.json(), async (req, res) => { // Added 'async' for asynchronous operation
+})
+productRouter.post('/addProduct', bodyParser.json(), (req,res)=>{
     try {
-        await product.addproduct(req, res);
-    } catch (e) {
+        products.addProducts(req, res)
+    } catch (error) {
         res.json({
             status: res.statusCode,
-            msg: 'Failed to retrieve product',
-        });
+            msg: 'Failed to add a product'
+        })
     }
-});
-export default productRouter.express ;
+})
+export{
+    productRouter
+}
