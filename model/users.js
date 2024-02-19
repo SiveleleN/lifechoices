@@ -3,7 +3,8 @@ import { hash, compare } from "bcrypt";
 import { createToken } from "../middleware/userAunthentication.js";
 class Users {
     fetchUsers(req, res) {
-        const qry = `SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole FROM users;`;
+        const qry = `SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole FROM Users;`;
+        // const qry = `SELECT * FROM Users;`;
         db.query(qry, (err, results) => {
             if (err) throw err;
             res.json({
@@ -13,7 +14,7 @@ class Users {
         });
     }
     fetchUserById(req, res) {
-        const qry = `SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole FROM users WHERE userID = ?;`;
+        const qry = `SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole FROM Users WHERE userID = ?;`;
         db.query(qry, [req.params.id], (err, result) => {
             if (err) throw err;
             res.json({
@@ -30,7 +31,7 @@ class Users {
                 emailAdd: data.emailAdd,
                 userPwd: data.userPwd
             };
-            const qry = `INSERT INTO users SET ?;`;
+            const qry = `INSERT INTO Users SET ?;`;
             db.query(qry, user, (err) => {
                 if (err) {
                     res.json({

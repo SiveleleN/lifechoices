@@ -27,9 +27,10 @@ class Products{
     }
     addProduct(req,res){
         const qry = `
-        insert into Product
-        set ?;`
-        db.query(qry, (err)=>{
+        INSERT INTO Product
+        set ?;
+        `
+        db.query(qry, [req.body], (err)=>{
             if(err) throw err
             res.json({
                 status: res.statusCode,
