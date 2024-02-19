@@ -1,6 +1,6 @@
-import { connection as db } from "../config/index";
+import { connection as db } from "../config/index.js";
 import { hash, compare } from "bcrypt";
-import { createToken } from "../middleware/userAuthentication";
+import { createToken } from "../middleware/userAunthentication.js";
 class Users {
     fetchUsers(req, res) {
         const qry = `SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole FROM users;`;

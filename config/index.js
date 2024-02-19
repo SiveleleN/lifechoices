@@ -11,4 +11,5 @@ let connection = createPool({
     connectionLimitL: 30
 })
 export{
+    connection
 }

@@ -7,7 +7,7 @@ import { config } from 'dotenv';
 import cors from 'cors'
 // create express app
 const app = express()
-const port = +process.env.PORT || 4000
+const port = +process.env.PORT || 4500
 // middleware
 app.use((req, res, next)=>{
     res.header("Access-Control-Allow-Origin","*");
