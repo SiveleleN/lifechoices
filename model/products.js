@@ -1,9 +1,9 @@
 import {connection as db} from "../config/index.js"
 class Products{
     fetchProducts(req, res){
-        const qry = `Select prodID, prodName,
+        const qry = `SELECT prodID, prodName,
         prodQuantity, userID
-        From Products;`
+        FROM Products;`
         db.query(qry, (err, results)=>{
             if(err) throw err
             res.json({
@@ -14,9 +14,9 @@ class Products{
     }
     fetchProducts(req,res){
         const qry = `
-        select prodID, prodName, prodQuantity,userID
-        From Products
-        where prodID = ${req.params.id};`
+        SELECT prodID, prodName, prodQuantity,userID
+        FROM Products
+        WHERE prodID = ${req.params.id};`
         db.query(qry,(err, result)=>{
             if(err) throw err
             res.json({
@@ -28,7 +28,7 @@ class Products{
     addProduct(req,res){
         const qry = `
         INSERT INTO Product
-        set ?;
+        SET ?;
         `
         db.query(qry, [req.body], (err)=>{
             if(err) throw err
